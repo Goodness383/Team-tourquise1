@@ -9,7 +9,7 @@ app.secret_key = os.urandom(24) # Required for secure sessions and flash message
 
 @app.route('/')
 def index():
-    return render_template('base.html')
+    return render_template('index.html')
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():

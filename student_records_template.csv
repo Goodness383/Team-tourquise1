@@ -1,1 +1,2 @@
-StudentName,Password,StudentsID,HasHostel,Gender,Room_Number
+StudentName,Password,StudentsID,HasHostel,Gender,Room_Number,Role
+Chifumnaya Jasper Omefe,scrypt:32768:8:1$86D7wfHdfrnIoz8V$5c336a98fff20335a309cbbb17a34805ea7b987924978769205f40f9eb218eea4afc308efcb896ee5b1524e8f7367f0a7ba6b7a7f059331b7f48e5da9dacc2d9,1479,False,Female,,student
