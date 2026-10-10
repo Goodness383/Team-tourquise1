@@ -22,8 +22,8 @@ def get_grouped_availability(gender_filter=None):
 
 def request_booking(student_id, hostel_name, room_number):
     with FileLock(INV_LOCK):
-        df = pd.read_csv(INVENTORY_DB)
-        
+        # df = pd.read_csv(INVENTORY_DB)
+        df = pd.read_csv(INVENTORY_DB, dtype={'Allocated_StudentID': str})
         # Check if student already has a bed
         if (df['Allocated_StudentID'] == str(student_id)).any():
             return False, "Student already has an allocated bed."

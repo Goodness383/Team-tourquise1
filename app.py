@@ -5,7 +5,9 @@ from backend.inventory import get_grouped_availability, request_booking
 import os
 
 app = Flask(__name__)
-app.secret_key = os.urandom(24) # Required for secure sessions and flash messages
+# app.secret_key = os.urandom(24) 
+app.secret_key = 'hostme-hackathon-secret-key'
+# Required for secure sessions and flash messages
 
 @app.route('/')
 def index():
@@ -69,7 +71,7 @@ def book():
     room_number = request.form.get('room_number')
     student_id = session.get('student_id')
     
-    success, message = request_booking(student_id, hostel_name, int(room_number))
+    success, message = request_booking(student_id, hostel_name, room_number)
     flash(message)
     return redirect(url_for('hostels'))
 
