@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Available Hostel Rooms</h2>
+<div class="grid">
+    {% for room in rooms %}
+    <div class="card">
+        <h3>{{ room.Hostel_Name }} - Room {{ room.Room_Number }}</h3>
+        <p><strong>Gender:</strong> {{ room.Gender }}</p>
+        <p><strong>Floor:</strong> {{ room.Floors }}</p>
+        <p><strong>Capacity:</strong> {{ room.Room_Capacity }} ({{ room.Available_Beds }} beds available)</p>
+        
+        <form action="/book" method="POST">
+            <input type="hidden" name="hostel_name" value="{{ room.Hostel_Name }}">
+            <input type="hidden" name="room_number" value="{{ room.Room_Number }}">
+            <button type="submit" class="btn-primary" style="margin-top: 1rem;">Request Booking</button>
+        </form>
+    </div>
+    {% else %}
+    <p>No available rooms matching your criteria at this time.</p>
+    {% endfor %}
+</div>
+{% endblock %}
